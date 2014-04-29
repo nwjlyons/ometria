@@ -64,7 +64,7 @@ class Resource(object):
         """
         key = self.path + '/' + name
 
-        self.client.resources[key] = Resource(self.client, key)
+        self.client.resources[key] = self.client.resource_class(self.client, key)
 
         return self.client.resources[key]
 
@@ -87,7 +87,7 @@ class Resource(object):
 
         key = self.path + '/' + self.id
 
-        self.client.resources[key] = Resource(self.client, key)
+        self.client.resources[key] = self.client.resource_class(self.client, key)
 
         return self.client.resources[key]
 
@@ -194,6 +194,7 @@ class Client(object):
         self.version = version
         self.base_url = "https://api.ometria.com/v%s/" % self.version
         self.resources = {}
+        self.resource_class = Resource
 
     def __getattr__(self, name):
         """
@@ -210,7 +211,7 @@ class Client(object):
         key = name
 
         if key not in self.resources:
-            self.resources[key] = Resource(self, key)
+            self.resources[key] = self.resource_class(self, key)
 
         return self.resources[key]
 
