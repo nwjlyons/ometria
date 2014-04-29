@@ -11,13 +11,13 @@ Tests for `ometria` module.
 import unittest
 import httpretty
 
-from ometria import ometria
+from ometria import Client
 
 
 class TestOmetria(unittest.TestCase):
 
     def setUp(self):
-        self.client = ometria.Client(key="ometria_api_key", secret="ometria_api_secret")
+        self.client = Client(key="ometria_api_key", secret="ometria_api_secret")
 
     @httpretty.activate
     def test_retrieving_products(self):
