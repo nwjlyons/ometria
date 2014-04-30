@@ -19,7 +19,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='ometria',
-    version='0.1.3',
+    version='0.1.4',
     description='Python wrapper for the Ometria API',
     long_description=readme + '\n\n' + history,
     author='Neil Lyons',
@@ -43,8 +43,6 @@ setup(
         "Programming Language :: Python :: 2",
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
     ],
     test_suite='tests',
 )
