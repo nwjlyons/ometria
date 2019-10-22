@@ -1,2 +1,2 @@
-requests==2.2.1
+requests==2.20.0
 httpretty==0.8.0
